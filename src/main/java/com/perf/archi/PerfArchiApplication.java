@@ -7,9 +7,11 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
 @SpringBootApplication
 public class PerfArchiApplication implements CommandLineRunner {
@@ -18,14 +20,14 @@ public class PerfArchiApplication implements CommandLineRunner {
 	private MatrixFusionMergeService matrix;
 
 	public static void main(String[] args) {
-		SpringApplication app = new SpringApplication(PerfArchiApplication.class);
+		SpringApplication.run(PerfArchiApplication.class, args);
 		List<String> argumentos = new ArrayList<String>(Arrays.asList(args));
-		app.run(argumentos.stream().toArray(String[]::new));
+		//app.run(argumentos.stream().toArray(String[]::new));
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-		
+		runAllServices();
 	}
 
 	private void runAllServices() {
